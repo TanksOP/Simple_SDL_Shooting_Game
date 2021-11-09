@@ -1,3 +1,5 @@
+#pragma once
+
 #include <SDL.h>
 #include <SDL_image.h>
 
@@ -12,6 +14,7 @@
 using namespace std;
 
 class BulletManager{
+	friend class MeteorManager;
 public:
 	BulletManager(SDL_Renderer* renderer, Player* player) : renderer(renderer), player(player) {};
 	

@@ -4,8 +4,9 @@
 #include <iostream>
 
 #include "Player.h"
-#include "MeteorManager.h"
 #include "BulletManager.h"
+#include "MeteorManager.h"
+
 
 
 using namespace std;
