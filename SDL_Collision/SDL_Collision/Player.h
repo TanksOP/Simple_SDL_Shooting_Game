@@ -17,6 +17,10 @@ public:
 
 	void clean();
 
+	float getAngle() const {
+		return	rotationAngle;
+	}
+
 private:
 	SDL_Renderer * renderer;
 	SDL_Texture * playerTexture;

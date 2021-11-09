@@ -38,6 +38,8 @@ bool GameLoop::init()
 	player->init();
 	mm = new MeteorManager(this->renderer);
 	mm->init();
+	bm = new BulletManager(this->renderer, this->player);
+	bm->init();
 	return true;
 
 }
@@ -65,6 +67,7 @@ bool GameLoop::processInput()
 	}
 
 	player->processInput(keyDown);
+	bm->processInput(keyDown);
 
 	return true;
 }
@@ -73,6 +76,7 @@ void GameLoop::update()
 {
 	player->update();
 	mm->update();
+	bm->update();
 }
 
 void GameLoop::draw()
@@ -81,6 +85,7 @@ void GameLoop::draw()
 
 	player->draw();
 	mm->draw();
+	bm->draw();
 
 	SDL_RenderPresent(renderer);
 	SDL_Delay(16);
@@ -90,4 +95,5 @@ void GameLoop::clean()
 {
 	player->clean();
 	mm->clean();
+	bm->clean();
 }
