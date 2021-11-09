@@ -29,6 +29,7 @@ public:
 		if (keyDown[SDL_SCANCODE_SPACE]) {
 			if (SDL_GetTicks() - lastShot > shootTimerMS) {
 				bullets.push_back(Bullet{ 315.0f, 230.0f, player->getAngle(),0.0f });
+				lastShot = SDL_GetTicks();
 			}
 		}
 	}
@@ -37,7 +38,7 @@ public:
 	void update() {
 		for (auto& b : bullets) {
 			b.x += sin(b.rotation * PI / 180.0f) * bulletVelocity;
-			b.y += sin(b.rotation * PI / 180.0f) * bulletVelocity;
+			b.y -= cos(b.rotation * PI / 180.0f) * bulletVelocity;
 			b.distance += bulletVelocity;
 		}
 
